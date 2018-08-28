@@ -2,7 +2,6 @@ import os
 import numpy as np
 import torch
 import torch.utils.data as torch_data
-import imageio
 from PIL import Image
 from torchvision import transforms
 
@@ -20,7 +19,7 @@ class LiverData(torch_data.Dataset):
     def __init__(self, augment, paths=[]):
         self.augment = augment
         
-        self.patient_paths = ['layers/', 'LiTS/layers/']
+        self.patient_paths = ['Data/3Dircadb/', 'Data/LiTS/Training/']
         if paths:
             self.patient_paths = paths
         

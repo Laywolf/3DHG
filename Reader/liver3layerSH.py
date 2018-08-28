@@ -15,7 +15,7 @@ T = transforms.Compose([
 ])
 ToTensor = transforms.ToTensor()
 
-class Liver3Layer(torch_data.Dataset):
+class Liver3LayerSH(torch_data.Dataset):
     def __init__(self, augment):
         self.augment = augment
         
@@ -34,17 +34,13 @@ class Liver3Layer(torch_data.Dataset):
                 self.num_data_list.append(num)
             
     def __len__(self):
-        if self.augment:
-            return self.num_data * 2
-        else:
-            return self.num_data
+        return self.num_data
     
     def __getitem__(self, index):
         #augmentation
         augment_voxel = False
-        if self.augment and index >= self.num_data:
+        if random.random() > 0.6:
             augment_voxel = True
-            index -= self.num_data
         
         #patient index
         patient_index = -1
