@@ -97,6 +97,7 @@ class LiverData(torch_data.Dataset):
             path = image_path + '{}.png'.format(str(imageIndex))
             if os.path.isfile(path):
                 image = Image.open(path)
+                image = image.resize((256, 256), Image.ANTIALIAS)
                 if augment_voxel:
                     image = self.augmentation(image, scale, angle)
                     if not label:

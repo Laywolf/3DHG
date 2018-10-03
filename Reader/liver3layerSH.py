@@ -109,6 +109,8 @@ class Liver3LayerSH(torch_data.Dataset):
         for index in range(crop_index, crop_index + 3):
             path = image_path + '{}.png'.format(str(index))
             image = Image.open(path)
+            image = image.resize((256, 256), Image.ANTIALIAS)
+                
             if augment_voxel:
                 image = self.augmentation(image, scale, angle)
                 if not label:
