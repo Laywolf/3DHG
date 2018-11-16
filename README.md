@@ -1,2 +1,2 @@
-# 3DSH
-3D Stacked hourglass for medical image segmentation
+# 3DHG
+3D hourglass model for medical image segmentation
